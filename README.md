@@ -36,4 +36,4 @@ Step 4. Then in your code use the 'true' after your text param to do justify tha
 
 in the below you can see the screenshot
 
-![image](https://user-images.githubusercontent.com/27196670/50384099-11538e00-06d5-11e9-8f19-122eae0cd7a7.png=250x250)
+![image](https://user-images.githubusercontent.com/27196670/50384099-11538e00-06d5-11e9-8f19-122eae0cd7a7.png){:height="700px" width="400px"}
