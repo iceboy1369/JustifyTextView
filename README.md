@@ -2,6 +2,11 @@
 
 This is a custom library for android that can justify your textView... Amazing!
 
+in the below you can see the screenshot
+
+
+<img src="https://user-images.githubusercontent.com/27196670/50384099-11538e00-06d5-11e9-8f19-122eae0cd7a7.png" width="400" height="700">
+
 Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
 
@@ -33,8 +38,3 @@ Step 4. Then in your code use the 'true' after your text param to do justify tha
 
 	TextViewJustify txt_justify = findViewById (R.id.txt_justify);
 	txt_justify.setText( "your text" , true );
-
-in the below you can see the screenshot
-
-
-<img src="https://user-images.githubusercontent.com/27196670/50384099-11538e00-06d5-11e9-8f19-122eae0cd7a7.png" width="400" height="700">
