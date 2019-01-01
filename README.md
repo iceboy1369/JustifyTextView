@@ -1,5 +1,9 @@
 # TextViewJustify
 
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+<img src="https://img.shields.io/badge/version-1.1-green.svg"/>
+<img src="https://jitpack.io/v/iceboy1369/JustifyTextView.svg"/>
+
 This is a custom library for android that can justify your textView... Amazing!
 
 in the below you can see the screenshot
@@ -21,7 +25,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.iceboy1369:JustifyTextView:1.0'
+	        implementation 'com.github.iceboy1369:JustifyTextView:1.1'
 	}
 	
 
