@@ -1,5 +1,6 @@
 package icegroup.textviewjustify;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,39 +15,23 @@ import android.util.AttributeSet;
 public class TextViewJustify extends AppCompatTextView {
     private Paint paint = new Paint();
 
-    private String [] blocks;
-    private float spaceOffset = 0;
-    private float horizontalOffset = 0;
-    private float verticalOffset = 0;
-    private float horizontalFontOffset = 0;
-    private float dirtyRegionWidth = 0;
     private boolean wrapEnabled = false;
     private Align _align=Align.RIGHT;
-    private float strecthOffset;
-    private float wrappedEdgeSpace;
-    private String block;
-    private String wrappedLine;
-    private String [] lineAsWords;
-    private Object[] wrappedObj;
-
     private Bitmap cache = null;
     private boolean cacheEnabled = false;
 
-    public TextViewJustify(Context context, AttributeSet attrs, int defStyle)
-    {
+    public TextViewJustify(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         //set a minimum of left and right padding so that the texts are not too close to the side screen
         this.setPadding(10, 0, 10, 10);
     }
 
-    public TextViewJustify(Context context, AttributeSet attrs)
-    {
+    public TextViewJustify(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setPadding(10, 0, 10, 10);
     }
 
-    public TextViewJustify(Context context)
-    {
+    public TextViewJustify(Context context) {
         super(context);
         this.setPadding(10, 0, 10, 10);
     }
@@ -69,14 +54,9 @@ public class TextViewJustify extends AppCompatTextView {
         wrapEnabled = wrap;
         super.setText(st);
     }
-    public void setTextAlign(Align align)
-    {
-        _align=align;
-    }
     @SuppressLint("NewApi")
     @Override
-    protected void onDraw(Canvas canvas)
-    {
+    protected void onDraw(Canvas canvas) {
         // If wrap is disabled then,
         // request original onDraw
         if(!wrapEnabled)
@@ -124,21 +104,21 @@ public class TextViewJustify extends AppCompatTextView {
         paint.setFlags(Paint.ANTI_ALIAS_FLAG);
 
         //minus out the paddings pixel
-        dirtyRegionWidth = getWidth()-getPaddingLeft()-getPaddingRight();
+        float dirtyRegionWidth = getWidth()-getPaddingLeft()-getPaddingRight();
         int maxLines = Integer.MAX_VALUE;
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentapiVersion >= android.os.Build.VERSION_CODES.JELLY_BEAN){
             maxLines = getMaxLines();
         }
         int lines = 1;
-        blocks = getText().toString().split("((?<=\n)|(?=\n))");
-        verticalOffset = horizontalFontOffset = getLineHeight() - 0.5f; // Temp fix
-        spaceOffset = paint.measureText(" ");
+        String [] blocks = getText().toString().split("((?<=\n)|(?=\n))");
+        float horizontalFontOffset;
+        float verticalOffset = horizontalFontOffset = getLineHeight() - 0.5f; // Temp fix
+        float spaceOffset = paint.measureText(" ");
 
-        for(int i = 0; i < blocks.length && lines <= maxLines; i++)
-        {
-            block = blocks[i];
-            horizontalOffset = 0;
+        for(int i = 0; i < blocks.length && lines <= maxLines; i++) {
+            String block = blocks[i];
+            float horizontalOffset = 0;
 
             if(block.length() == 0)
             {
@@ -156,12 +136,12 @@ public class TextViewJustify extends AppCompatTextView {
             {
                 continue;
             }
-            wrappedObj = TextJustifyUtils.createWrappedLine(block, paint, spaceOffset, dirtyRegionWidth);
+            Object[] wrappedObj = TextJustifyUtils.createWrappedLine(block, paint, spaceOffset, dirtyRegionWidth);
 
-            wrappedLine = ((String) wrappedObj[0]);
-            wrappedEdgeSpace = (Float) wrappedObj[1];
-            lineAsWords = wrappedLine.split(" ");
-            strecthOffset = wrappedEdgeSpace != Float.MIN_VALUE ? wrappedEdgeSpace/(lineAsWords.length - 1) : 0;
+            String wrappedLine = ((String) wrappedObj[0]);
+            float wrappedEdgeSpace = (Float) wrappedObj[1];
+            String [] lineAsWords = wrappedLine.split(" ");
+            float strecthOffset = wrappedEdgeSpace != Float.MIN_VALUE ? wrappedEdgeSpace/(lineAsWords.length - 1) : 0;
             for(int j = 0; j < lineAsWords.length; j++)
             {
                 String word = lineAsWords[j];
@@ -205,8 +185,7 @@ public class TextViewJustify extends AppCompatTextView {
                 i--;
             }
         }
-        if (cacheEnabled)
-        {
+        if (cacheEnabled){
             // Draw the cache onto the OS provided
             // canvas.
             canvas.drawBitmap(cache, 0, 0, paint);
