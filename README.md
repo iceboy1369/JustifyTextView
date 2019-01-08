@@ -3,6 +3,7 @@
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 <img src="https://img.shields.io/badge/version-1.1-green.svg"/>
 <img src="https://jitpack.io/v/iceboy1369/JustifyTextView.svg"/>
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-TextViewJustify-green.svg?style=flat )]( https://android-arsenal.com/details/1/7437 )
 
 This is a custom library for android that can justify your textView... Amazing!
 
