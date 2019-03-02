@@ -52,6 +52,7 @@ public class TextViewJustify extends AppCompatTextView {
     public void setText(String st, boolean wrap)
     {
         wrapEnabled = wrap;
+        st = addEnterCharacterToEnd(st);
         super.setText(st);
     }
     @SuppressLint("NewApi")
@@ -190,5 +191,13 @@ public class TextViewJustify extends AppCompatTextView {
             // canvas.
             canvas.drawBitmap(cache, 0, 0, paint);
         }
+    }
+    private String addEnterCharacterToEnd(String text){
+        String [] blocks = text.split("\n");
+        int blocks_count = blocks.length;
+        for (int i=0; i<blocks_count; i++){
+            text = text + "\n";
+        }
+        return text;
     }
 }
