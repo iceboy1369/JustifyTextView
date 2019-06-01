@@ -192,7 +192,10 @@ public class TextViewJustify extends AppCompatTextView {
             canvas.drawBitmap(cache, 0, 0, paint);
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> a58ce1506d3069b6ed33434103477c8f0d49cafe
     private String addEnterCharacterToEnd(String text){
         String [] blocks = text.split("\n");
         int blocks_count = blocks.length;
